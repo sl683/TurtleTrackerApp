@@ -9,20 +9,32 @@
 # Date:   Fall 2022
 #--------------------------------------------------------------
 
-# Copy and paste one line of data as variable
-lineString = "20616	29051	7/3/2003 9:13	3	66	33.898	-77.958	27.369	-46.309	6	0	-126	529	3	401 651134.7	0"
+# Create a variable point to the data file
+file_name = 'data/raw/sara.txt'
 
-# Split lineString into a list of items
-lineData = lineString.split()
+# Create a file object from the filename
+file_object = open(file=file_name, mode ='r') 
 
-# Assign variables to items in the lineData list
-record_id = lineData[0]
-obs_date = lineData[2]
-obs_lc = lineData[4]
-obs_lat = lineData[6]
-obs_lon = lineData[7]
+# Read contents of file into a list
+line_list = file_object.readlines()
 
-# Print information to the user
-print(f'Record {record_id} indicates Sara was seen at {obs_lat}N, {obs_lon}W on {obs_date}.')
+# Close the file object
+file_object.close()
+
+# Extract one data line into a variable
+for lineString in line_list:
+
+    # Split lineString into a list of items
+    lineData = lineString.split()
+    
+    # Assign variables to items in the lineData list
+    record_id = lineData[0]
+    obs_date = lineData[2]
+    obs_lc = lineData[4]
+    obs_lat = lineData[6]
+    obs_lon = lineData[7]
+    
+    # Print information to the user
+    print(f'Record {record_id} indicates Sara was seen at {obs_lat}N, {obs_lon}W on {obs_date}.')
 
 
