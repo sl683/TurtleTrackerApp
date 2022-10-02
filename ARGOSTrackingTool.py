@@ -23,6 +23,10 @@ file_object.close()
 
 # Extract one data line into a variable
 for lineString in line_list:
+    
+    # Checj to see if the lineString is a data line
+    if lineString[0] == "#" or lineString[0] == "u":
+        continue
 
     # Split lineString into a list of items
     lineData = lineString.split()
